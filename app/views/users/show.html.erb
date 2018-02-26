@@ -7,9 +7,11 @@
     　　<%= image_tag("/avatars/default_icon.png") %>
     　<% end %>
       <h2><%=@user.name %></h2>
-      <p><%= @user.email %></p>
-      <% if @user.id == @current_user.id %>
-          <%= link_to( "編集", "/users/#{@user.id}/edit") %>
+      <%if @current_user %>
+        <%if @user.id == @current_user.id %>
+          <p><%= @user.email %></p>
+          <%=  link_to( "編集", "/users/#{@user.id}/edit") %>
+        <% end %>
       <% end %>
     </div>
 
