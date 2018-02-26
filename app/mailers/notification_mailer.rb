@@ -7,9 +7,8 @@ class NotificationMailer < ApplicationMailer
     mail to: user.email, subject: "ユーザー登録が完了しました!"
   end
 
-  def post_email(user, post)
+  def post_email(user)
     @username = user.name
-    @itemname = post.name
     mail to: user.email, subject: "作品が投稿されました"
   end
 end

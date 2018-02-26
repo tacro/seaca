@@ -25,7 +25,7 @@ before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
     if @post.save
       flash[:notice] = "投稿しました"
       redirect_to("/posts/index")
-      NotificationMailer.post_email(@current_user, @post).deliver
+      NotificationMailer.post_email(@current_user).deliver
     else
       render("posts/new")
     end
