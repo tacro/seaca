@@ -1,0 +1,22 @@
+
+<div class="main posts-index">
+  <div class="container">
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <div class="post-left">
+          <% if post.user.avatar %>
+        　　  <%= image_tag post.user.avatar.thumb.url %>
+        　<% else %>
+        　　<%= image_tag("/avatars/default_icon.png") %>
+        　<% end %>
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+          </div>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

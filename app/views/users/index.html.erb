@@ -1,0 +1,19 @@
+<div class="main users-index">
+  <div class="container">
+    <h1 class="users-heading">ユーザー一覧</h1>
+    <% @users.each do |user| %>
+      <div class="users-index-item">
+        <div class="user-left">
+          <% if user.avatar %>
+        　　  <%= image_tag user.avatar.thumb.url %>
+        　<% else %>
+        　　<%= image_tag("/avatars/default_icon.png") %>
+        　<% end %>
+        </div>
+        <div class="user-right">
+          <%= link_to(user.name, "/users/#{user.id}") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
