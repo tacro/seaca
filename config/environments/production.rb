@@ -62,6 +62,18 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "seaca_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+  # SMTP Settings
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  	address:               'smtp.gmail.com',
+  	port:      	           587,
+  	domain:                'heroku.com',
+  	user_name:             ENV['USER_NAME_GMAIL'],
+  	password:              ENV['PASSWORD_GMAIL'],
+  	authentication:        'plain',
+  	enable_starttls_auto:  true
+  }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
